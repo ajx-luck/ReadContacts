@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="请输入添加好友验证内容："/>
+    <EditText
+        android:id="@+id/edit_send_reply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:hint="验证内容"/>
+    <CheckBox
+        android:id="@+id/auto_reply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自动回复"/>
+    <LinearLayout
+        android:id="@+id/ll_reply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/edit_reply1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="回复消息1"/>
+    <EditText
+        android:id="@+id/edit_reply2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="回复消息2"/>
+    <EditText
+        android:id="@+id/edit_reply3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="回复消息3"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请输入你要推荐的好友名片："/>
+        <EditText
+            android:id="@+id/edit_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="发送名片"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="推荐好友名片后回复的消息："/>
+    <EditText
+        android:id="@+id/edit_reply4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="回复消息4"/>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="保存"/>
+</LinearLayout>

@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        debug {
+            keyAlias 'htxk_community_debug'
+            keyPassword 'htxk2017'
+            storeFile file('D:/android/project/luckymoney/ReadContacts/app/htxk_debug_key.jks')
+            storePassword 'htxkandroid777'
+        }
+        release {
+            keyAlias 'htxk_community_debug'
+            keyPassword 'htxk2017'
+            storeFile file('D:/android/project/luckymoney/ReadContacts/app/htxk_debug_key.jks')
+            storePassword 'htxkandroid777'
+        }
+    }
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.contacts.read.readcontacts"
+        minSdkVersion 18
+        targetSdkVersion 28
+        versionCode 3
+        versionName "1.2"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // 友盟推送需要去掉 64bit 的架构
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters  'armeabi-v7a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+    }
+    dexOptions {
+        jumboMode true
+        preDexLibraries = true
+        javaMaxHeapSize "4g"
+    }
+    
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories{
+    flatDir { dirs 'libs'}
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha1'
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.google.code.gson:gson:2.6.2'
+    implementation 'io.reactivex:rxjava:1.1.0'
+    implementation 'io.reactivex:rxandroid:1.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+
+//    implementation 'com.umeng.sdk:common:latest.integration'
+//    implementation 'com.umeng.sdk:analytics:latest.integration'
+
+    implementation (name:'push-debug',ext:'aar')
+}
